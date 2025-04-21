@@ -2,10 +2,12 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import Navbar from "@/components/Navbar";
 
 const Index = () => {
   return (
     <div className="flex flex-col min-h-screen">
+      <Navbar />
       {/* Hero Section */}
       <section className="py-20 px-4 bg-gradient-to-b from-background to-background/90">
         <div className="container mx-auto">
