@@ -1,6 +1,13 @@
+
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { Menu } from "lucide-react";
 
 interface LayoutProps {
@@ -10,65 +17,103 @@ interface LayoutProps {
 const Layout = ({ children }: LayoutProps) => {
   return (
     <div className="min-h-screen flex flex-col bg-background">
-      <header className="sticky top-0 z-50 w-full bg-black shadow-lg">
-        <nav className="container mx-auto flex h-16 items-center justify-between px-6">
-          <Link
-            to="/"
-            className="text-white text-2xl font-extrabold tracking-tighter flex items-center"
-            style={{ fontFamily: "Inter, sans-serif" }}
-          >
-            limat<span className="text-indigo-500 ml-px text-3xl align-top leading-none">.</span>
-          </Link>
-          <div className="hidden md:flex items-center gap-6 text-white text-base font-medium">
-            <div className="relative group">
-              <button className="transition-colors hover:text-indigo-400 focus:outline-none">
-                Products <span className="text-indigo-400">▼</span>
-              </button>
-            </div>
-            <div className="relative group">
-              <button className="transition-colors hover:text-indigo-400 focus:outline-none">
-                Use cases <span className="text-indigo-400">▼</span>
-              </button>
-            </div>
-            <div className="relative group">
-              <button className="transition-colors hover:text-indigo-400 focus:outline-none">
-                API <span className="text-indigo-400">▼</span>
-              </button>
-            </div>
-            <div className="relative group">
-              <button className="transition-colors hover:text-indigo-400 focus:outline-none">
-                Resources <span className="text-indigo-400">▼</span>
-              </button>
-            </div>
+      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur">
+        <div className="container mx-auto flex h-16 items-center justify-between px-4">
+          <div className="flex items-center gap-2">
+            <Link to="/" className="flex items-center space-x-2">
+              <span className="font-bold text-2xl bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">LIMAT</span>
+            </Link>
           </div>
-          <div className="flex items-center gap-3">
-            <Link
-              to="/candidate"
-              className="hidden md:block text-white bg-transparent hover:text-indigo-400 transition px-4 py-2 rounded-md"
-            >
-              Get hired
+          
+          <nav className="hidden md:flex items-center space-x-6">
+            <Link to="/" className="text-sm font-medium transition-colors hover:text-primary">
+              Home
             </Link>
-            <Link to="/login">
-              <Button variant="outline" className="border border-white/40 bg-black text-white hover:bg-white/10 px-5 py-2 min-w-[100px]">
-                Login
-              </Button>
+            <Link to="/about" className="text-sm font-medium transition-colors hover:text-primary">
+              About
             </Link>
-            <Link to="/register">
-              <Button className="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2 min-w-[120px] shadow-lg font-bold">
-                Book a demo
-              </Button>
+            <Link to="/how-it-works" className="text-sm font-medium transition-colors hover:text-primary">
+              How It Works
             </Link>
-            <div className="md:hidden ml-2">
-              <Button variant="ghost" size="icon" className="text-white">
-                <Menu />
-                <span className="sr-only">Open mobile menu</span>
-              </Button>
+            <Link to="/features" className="text-sm font-medium transition-colors hover:text-primary">
+              Features
+            </Link>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="link" className="text-sm font-medium p-0 h-auto">
+                  Portals
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuItem asChild>
+                  <Link to="/candidate">Candidate Portal</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/recruiter">Recruiter Portal</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/admin">Admin Dashboard</Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </nav>
+          
+          <div className="flex items-center space-x-4">
+            <div className="hidden md:flex items-center space-x-4">
+              <Link to="/login">
+                <Button variant="outline">Login</Button>
+              </Link>
+              <Link to="/register">
+                <Button>Sign Up</Button>
+              </Link>
             </div>
+            
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild className="md:hidden">
+                <Button variant="outline" size="icon">
+                  <Menu className="h-5 w-5" />
+                  <span className="sr-only">Toggle menu</span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-48">
+                <DropdownMenuItem asChild>
+                  <Link to="/">Home</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/about">About</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/how-it-works">How It Works</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/features">Features</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/candidate">Candidate Portal</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/recruiter">Recruiter Portal</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/admin">Admin Dashboard</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/login">Login</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/register">Sign Up</Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
-        </nav>
+        </div>
       </header>
-      <main className="flex-1">{children}</main>
-      <footer className="border-t bg-background">
+      
+      <main className="flex-1">
+        {children}
+      </main>
+      
+      <footer className="border-t">
         <div className="container mx-auto py-8 px-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>

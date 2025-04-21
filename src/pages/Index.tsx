@@ -1,52 +1,45 @@
+
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
 const Index = () => {
   return (
-    <div className="flex flex-col min-h-screen bg-black">
+    <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section
-        className="flex flex-col justify-center items-center"
-        style={{
-          minHeight: "60vh",
-          background:
-            "radial-gradient(ellipse at top, #212a4d 0%, #0a0d18 100%)",
-        }}
-      >
-        <div className="w-full max-w-4xl mx-auto flex flex-col justify-center items-center text-center py-24 px-4">
-          <h1
-            className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight bg-clip-text text-transparent"
-            style={{
-              backgroundImage: "linear-gradient(180deg, #f3f3f3 70%, #c5c5f5 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent"
-            }}
-          >
-            AI recruitment engine to hire
-            <br />
-            <span className="block mt-2">top global talent</span>
-          </h1>
-          <p className="text-lg sm:text-xl md:text-2xl text-white/90 mt-9 font-medium">
-            Source, vet, and onboard talent all in one place
-          </p>
-          <div className="mt-12 flex flex-col sm:flex-row gap-6 justify-center">
-            <Link to="/register" className="w-full sm:w-auto">
-              <Button
-                className="w-full sm:w-auto text-lg bg-black border border-white/30 hover:bg-white/10 text-white font-semibold rounded-xl px-8 py-5 shadow-md"
-                style={{ minWidth: "230px" }}
-              >
-                Create an account
-              </Button>
-            </Link>
-            <Link to="/register" className="w-full sm:w-auto">
-              <Button
-                className="w-full sm:w-auto text-lg bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl px-8 py-5 shadow-indigo-700/30 shadow-lg"
-                style={{ minWidth: "230px" }}
-              >
-                Book a demo
-              </Button>
-            </Link>
+      <section className="py-20 px-4 bg-gradient-to-b from-background to-background/90">
+        <div className="container mx-auto">
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            <div className="flex-1 space-y-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
+                  AI-Powered Recruitment
+                </span>{" "}
+                for the Future Workforce
+              </h1>
+              <p className="text-xl text-muted-foreground">
+                LIMAT streamlines your hiring process with intelligent resume screening, 
+                AI interviews, and data-driven candidate selection.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link to="/register">
+                  <Button size="lg" className="px-8">Get Started</Button>
+                </Link>
+                <Link to="/how-it-works">
+                  <Button size="lg" variant="outline" className="px-8">How It Works</Button>
+                </Link>
+              </div>
+            </div>
+            <div className="flex-1 relative">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg blur opacity-75"></div>
+              <div className="relative bg-background rounded-lg p-4">
+                <img 
+                  src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                  alt="AI Recruitment" 
+                  className="rounded-lg w-full h-auto"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
