@@ -13,7 +13,6 @@ import Register from "./pages/Register";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import NotFound from "./pages/NotFound";
-import AnimatedBackground from "./components/AnimatedBackground";
 
 const queryClient = new QueryClient();
 
@@ -22,7 +21,6 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <AnimatedBackground color="#4f46e5" />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />

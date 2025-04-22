@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import Layout from "@/components/Layout";
+import Navbar from "@/components/Navbar";
 
 const NotFound = () => {
   const location = useLocation();
@@ -16,7 +16,8 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <Layout>
+    <div className="flex flex-col min-h-screen">
+      <Navbar />
       <div className="flex-1 flex items-center justify-center">
         <div className="max-w-md text-center px-4">
           <h1 className="text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">404</h1>
@@ -29,7 +30,7 @@ const NotFound = () => {
           </Link>
         </div>
       </div>
-    </Layout>
+    </div>
   );
 };
 
